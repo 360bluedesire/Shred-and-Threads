@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the navigation links */
+        .nav_links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 20px;
+            z-index: 1000; /* Ensures nav bar is above other content */
+        }
+
+        .nav_links ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Display flex to arrange items horizontally */
+            justify-content: flex-start; /* Align items to the left */
+        }
+
+        .nav_links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px; /* Increased margin for better spacing */
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav_links a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Changed text color to a darker shade */
+            padding-top: 80px; /* Increased padding for better alignment */
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow for emphasis */
+        }
+
+        /* Product Grid */
+        .product-container {
+            max-width: 1200px;
+            margin: 20px auto; /* Added margin for better spacing */
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better responsiveness */
+            gap: 30px; /* Increased gap between products */
+        }
+
+        .product {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px; /* Increased border radius for softer edges */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+
+        .product:hover {
+            transform: translateY(-5px); /* Lift on hover */
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h2 {
+            font-size: 1.8rem; /* Increased font size for titles */
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px; /* Improved spacing between paragraphs */
+        }
+
+        .product .price {
+            font-size: 1.4rem; /* Increased font size for price */
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav_links">
+        <ul>
+            <li><a href="index.html" class="index">Home</a></li>
+            <li><a href="about.html" class="about">About</a></li>
+            <li><a href="contact.html" class="contact">Contact</a></li>
+            <li><a href="#" class="product-link">Product</a></li>
+        </ul>
+    </nav>
+
+    <h1>Product Page</h1>
+
+    <div class="product-container">
+        <!-- Product 1: Clothes -->
+        <div class="product">
+            <img src="blue jeans.png" alt="Clothes 1">
+            <h2>Casual Wear</h2>
+            <p>Some casual blue denim jeans with a skull under the left pocket with the brands name on the back pockets.</p>
+            <p class="price">$69.99</p>
+        </div>
+
+        <div class="product">
+            <img src="Black and red.png" alt="Clothes 2">
+            <h2>Shred and threads Black denim jeans</h2>
+            <p>Some black denim jeans with our brand's name on the left and right leg with a skull under the back pocket.</p>
+            <p class="price">$67.99</p>
+        </div>
+
+        <div class="product">
+            <img src="SHRED.png" alt="Clothes 3">
+            <h2>Sportswear</h2>
+            <p>Check out our sportswear designed for performance and comfort.</p>
+            <p class="price">$74.99</p>
+        </div>
+
+        <!-- Product 2: Skateboards -->
+        <div class="product">
+            <img src="skull.png" alt="Skateboard 1">
+            <h2>Beginner Skateboards</h2>
+            <p>Shred and thread complete set up board.</p>
+            <p class="price">$89.99</p>
+        </div>
+
+        <div class="product">
+            <img src="spider.png" alt="Skateboard 2">
+            <h2>Street Skateboards</h2>
+            <p>Explore our street skateboards, designed for tricks and stunts.</p>
+            <p class="price">$99.99</p>
+        </div>
+
+        <div class="product">
+            <img src="Ghost.png" alt="Skateboard 3">
+            <h2>Complete board</h2>
+            <p>A complete set up board for more intermediate beginers.</p>
+            <p class="price">$79.99</p>
+        </div>
+    </div>
+
+</body>
+</html>
