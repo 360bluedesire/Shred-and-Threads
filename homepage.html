@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shred and Threads</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the navigation links */
+        .nav_links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 20px;
+            z-index: 1000; /* Ensures nav bar is above other content */
+        }
+
+        .nav_links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px; /* Adjust as needed */
+        }
+
+        .nav_links a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            padding-top: 60px; /* Space for navigation bar */
+        }
+
+        body {
+            margin-top: 60px; /* Ensure content starts below navigation bar */
+            background: url('me 3.jpg') no-repeat center center fixed; /* Background image settings */
+            background-size: cover; /* Cover the entire viewport */
+        }
+
+        /* Optional: Adjust styling for the header and navigation bar */
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav_links a {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav_links">
+        <a href="#" class="index">Home</a>
+        <a href="about.html" class="about">About</a>
+        <a href="contact.html" class="contact">Contact</a>
+        <a href="product.html" class="product">Product</a>
+        <a href="login.html" class="login">Login</a>
+    </nav>
+    <h1>Shred and Threads</h1>
+</body>
+</html>

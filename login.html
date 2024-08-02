@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shred and Threads</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Resetting default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the navigation links */
+        .nav_links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 20px;
+            z-index: 1000; /* Ensures nav bar is above other content */
+        }
+
+        .nav_links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px; /* Adjust as needed */
+        }
+
+        .nav_links a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            padding-top: 60px; /* Space for navigation bar */
+        }
+
+        body {
+            margin-top: 60px; /* Ensure content starts below navigation bar */
+            background-size: cover; /* Cover the entire viewport */
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        /* Optional: Adjust styling for the header and navigation bar */
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #333;
+        }
+
+        .nav_links a {
+            font-size: 1.2rem;
+        }
+
+        /* Styling for the login form */
+        .login-form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .login-form {
+            background-color: #fefefe;
+            padding: 40px; /* Increase padding for larger form */
+            border: 1px solid #888;
+            width: 700px; /* Increase width for larger form */
+            height: 600px;
+            border-radius: 10px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better look */
+        }
+
+        .login-form .container {
+            padding: 16px;
+        }
+
+        .login-form .container label {
+            font-weight: bold;
+        }
+
+        .login-form .container input[type=text],
+        .login-form .container input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .login-form .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-form .container button:hover {
+            opacity: 0.8;
+        }
+
+        .login-form .container .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .login-form .container .psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        @media screen and (max-width: 300px) {
+            .login-form .container .psw {
+                display: block;
+                float: none;
+            }
+            .login-form .container .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav_links">
+        <a href="homepage.html" class="index">Home</a>
+        <a href="about.html" class="about">About</a>
+        <a href="contact.html" class="contact">Contact</a>
+        <a href="product.html" class="product">Product</a>
+        <a href="#" class="login">Login</a>
+    </nav>
+    <h1>Login</h1>
+
+    <div class="login-form-container">
+        <form class="login-form animate" onsubmit="login(event)">
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+    <script>
+        function login(event) {
+            event.preventDefault();  // Prevent form from submitting the traditional way
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {
+                username: formData.get('uname'),
+                password: formData.get('psw')
+            };
+            fetch('http://localhost:9999/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.href = 'homepage.html';
+                } else {
+                    return response.text();
+                }
+            })
+            .then(message => {
+                if (message) {
+                    alert(message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
